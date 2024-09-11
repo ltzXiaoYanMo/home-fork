@@ -23,24 +23,30 @@ jobs:
         with:
           node-version: "18.x"
       # 复制环境变量文件
-      - name: Copy .env.example
+      - name: Copy .env
         run: |
           if (-not (Test-Path .env)) {
             Copy-Item .env.example .env
           } else {
             Write-Host ".env file already exists. Skipping the copy step."
           }
+      # 设置 AMap API Key
+      - name: Set AMap API Key
+        run: sed -i '' 's/Example/${{ secrets.AMAP_API_KEY }}/g' .env
       # 安装项目依赖
       - name: Install Dependencies
         run: npm install
       # 构建程序
       - name: Build Website
         run: npm run build
-        env:
-          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      # 上传构建产物
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v3.1.3
+      # 部署到阿里云OSS
+      - name: Setup OSS Util
+        uses: manyuanrong/setup-ossutil@v2.0
         with:
-          name: Home
-          path: dist
+          endpoint: "oss-cn-hangzhou.aliyuncs.com" # Endpoint 需在阿里云 OSS 控制台获取
+          access-key-id: ${{ secrets.ACCESS_KEY_ID }}
+          access-key-secret: ${{ secrets.ACCESS_KEY_SECRET }}
+          # 若需要保护密钥可在 Settings => Actions secrets and variables => Actions => Repository secrets 中添加
+          # ACCESS_KEY_ID 和 ACCESS_KEY_SECRET 两个密钥，分别存储阿里云的 Access Key ID 和 Access Key Secret
+      - name: Deploy To OSS
+        run: ossutil cp ./dist oss://yanmosites-dist/ -rf
