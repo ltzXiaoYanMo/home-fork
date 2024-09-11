@@ -11,7 +11,7 @@ on:
 jobs:
   release:
     name: Build Website
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
       # 检出 Git 仓库
@@ -22,8 +22,6 @@ jobs:
         uses: actions/setup-node@v4.0.0
         with:
           node-version: "18.x"
-      - name:
-        run: ls
       # 复制环境变量文件
       - name: Copy .env
         run: |
