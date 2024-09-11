@@ -34,7 +34,7 @@ jobs:
           }
       # 设置 AMap API Key
       - name: Set AMap API Key
-        run: sed -i '' 's/Example/${{ secrets.AMAP_API_KEY }}/g' .env
+        run: sed -i 's/Example/${{ secrets.AMAP_API_KEY }}/g' .env
       # 安装项目依赖
       - name: Install Dependencies
         run: npm install
