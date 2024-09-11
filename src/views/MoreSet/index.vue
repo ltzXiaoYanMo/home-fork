@@ -132,7 +132,7 @@ const jumpTo = (url) => {
 
       .logo {
         transform: translateY(-8%);
-        font-family: "Pacifico-Regular";
+        font-family: "Pacifico-Regular","Pacifico-Regular",serif;
         padding-left: 22px;
         width: 100%;
         height: 260px;
@@ -171,7 +171,7 @@ const jumpTo = (url) => {
 
         .num {
           font-size: 2rem;
-          font-family: "Pacifico-Regular";
+          font-family: "Pacifico-Regular",serif;
         }
 
         .github {

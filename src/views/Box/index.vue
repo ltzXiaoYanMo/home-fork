@@ -40,7 +40,7 @@ const closeShow = ref(false);
 
 <style lang="scss" scoped>
 .box {
-  flex: 1 0 0%;
+  flex: 1 0 0;
   margin-left: 0.75rem;
   height: 80%;
   max-width: 50%;

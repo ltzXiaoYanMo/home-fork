@@ -14,6 +14,7 @@
           <a :href="siteUrl">{{ siteAuthor }}</a>
         </span>
         <!-- 以下信息请不要修改哦 -->
+        <!--    我就改怎么你了   -->
         <span class="hidden">
           &amp;&nbsp;Made&nbsp;by
           <a :href="config.github" target="_blank">
@@ -24,7 +25,14 @@
         <span>
           &amp;
           <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
-            {{ siteIcp }}
+            {{ siteIcp }},
+          </a>
+          <a v-if="siteMps" href="https://beian.mps.gov.cn/#/query/webSearch?code=33038102332470" target="_blank">
+            {{ siteMps }},
+          </a>
+          <a v-if="siteMoe" href="https://icp.gov.moe/?keyword=20240848" target="_blank">
+            {{ siteMoe }}
+          <!-- 因 公安联网备案 和 MoeICP 是直接跳转查询结果而非同 ICP，此处需要自行修改   -->
           </a>
         </span>
       </div>
@@ -56,6 +64,8 @@ const startYear = ref(
   import.meta.env.VITE_SITE_START.substring(0, 4) : null
 );
 const siteIcp = ref(import.meta.env.VITE_SITE_ICP);
+const siteMps = ref(import.meta.env.VITE_SITE_MPS);
+const siteMoe = ref(import.meta.env.VITE_SITE_MOE);
 const siteAuthor = ref(import.meta.env.VITE_SITE_AUTHOR);
 const siteUrl = computed(() => {
   const url = import.meta.env.VITE_SITE_URL;
