@@ -16,7 +16,7 @@
         <!-- 以下信息请不要修改哦 -->
         <!--    我就改怎么你了   -->
         <span class="hidden">
-          &amp;&nbsp;Made&nbsp;by
+          &amp;&nbsp;Copyright
           <a :href="config.github" target="_blank">
             {{ config.author }}
           </a>
@@ -25,11 +25,13 @@
         <span>
           &amp;
           <a v-if="siteIcp" href="https://beian.miit.gov.cn" target="_blank">
-            {{ siteIcp }},
+            {{ siteIcp }}
           </a>
+          ,
           <a v-if="siteMps" href="https://beian.mps.gov.cn/#/query/webSearch?code=33038102332470" target="_blank">
-            {{ siteMps }},
+            {{ siteMps }}
           </a>
+          ,
           <a v-if="siteMoe" href="https://icp.gov.moe/?keyword=20240848" target="_blank">
             {{ siteMoe }}
           <!-- 因 公安联网备案 和 MoeICP 是直接跳转查询结果而非同 ICP，此处需要自行修改   -->

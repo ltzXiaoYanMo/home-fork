@@ -13,7 +13,7 @@
     <span class="sm-hidden">{{ weatherData.weather.windpower }}&nbsp;级</span>
   </div>
   <div class="weather" v-else>
-    <span>天气数据获取失败</span>
+    <span>天气数据获取失败惹...</span>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ const getTemperature = (min, max) => {
     const average = (Number(min) + Number(max)) / 2;
     return Math.round(average);
   } catch (error) {
-    console.error("计算温度出现错误：", error);
+    console.error("Error in calculating temperature:", error);
     return "NaN";
   }
 };
@@ -60,7 +60,7 @@ const getWeatherData = async () => {
       console.log(result);
       const data = result.result;
       weatherData.adCode = {
-        city: data.city.City || "未知地区",
+        city: data.city.City || "unknown area.",
         // adcode: data.city.cityId,
       };
       weatherData.weather = {
@@ -74,7 +74,7 @@ const getWeatherData = async () => {
       const adCode = await getAdcode(mainKey);
       console.log(adCode);
       if (adCode.infocode !== "10000") {
-        throw "地区查询失败";
+        throw "area search failed";
       }
       weatherData.adCode = {
         city: adCode.city,
@@ -90,8 +90,8 @@ const getWeatherData = async () => {
       };
     }
   } catch (error) {
-    console.error("天气信息获取失败:" + error);
-    onError("天气信息获取失败");
+    console.error("Failed to obtain weather data:" + error);
+    onError("Failed to obtain weather data");
   }
 };
 

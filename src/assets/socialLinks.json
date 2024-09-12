@@ -1,12 +1,12 @@
 [
   {
-    "name": "Github",
+    "name": "GitHub",
     "icon": "/images/icon/github.png",
-    "tip": "去 Github 看看",
+    "tip": "去 GitHub 看看",
     "url": "https://github.com/ltzXiaoYanMo"
   },
   {
-    "name": "BiliBili",
+    "name": "B站",
     "icon": "/images/icon/bilibili.png",
     "tip": "(゜-゜)つロ 干杯 ~",
     "url": "https://space.bilibili.com/542282955"
