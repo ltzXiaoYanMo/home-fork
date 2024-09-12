@@ -2,25 +2,23 @@
   <footer id="footer" :class="store.footerBlur ? 'blur' : null">
     <Transition name="fade" mode="out-in">
       <div v-if="!store.playerState || !store.playerLrcShow" class="power">
+                <span class="hidden">
+          &nbsp;Copyright &copy;
+          <a :href="config.github" target="_blank">
+            {{ config.author }}
+          </a>
+        </span>
+        ,
         <span>
-          <span :class="startYear < fullYear ? 'c-hidden' : 'hidden'">Copyright&nbsp;</span>
-          &copy;
           <span v-if="startYear < fullYear"
             class="site-start">
-            {{ startYear }}
-            -
+            {{ startYear }} -
           </span>
           {{ fullYear }}
           <a :href="siteUrl">{{ siteAuthor }}</a>
         </span>
         <!-- 以下信息请不要修改哦 -->
         <!--    我就改怎么你了   -->
-        <span class="hidden">
-          &amp;&nbsp;Copyright
-          <a :href="config.github" target="_blank">
-            {{ config.author }}
-          </a>
-        </span>
         <!-- 站点备案 -->
         <span>
           &amp;
