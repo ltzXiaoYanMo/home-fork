@@ -39,13 +39,9 @@ const bgRandom = Math.floor(Math.random() * 10 + 1);
 // 更换壁纸链接
 const changeBg = (type) => {
   if (type == 0) {
-    bgUrl.value = `/images/background${bgRandom}.jpg`;
+    bgUrl.value = `https://t.alcy.cc/moez`; // 没绷住，怎么优先走本地借口了 是怕服务器的硬盘爆了是吧
   } else if (type == 1) {
-    bgUrl.value = "https://api.dujin.org/bing/1920.php";
-  } else if (type == 2) {
-    bgUrl.value = "https://api.vvhan.com/api/wallpaper/views";
-  } else if (type == 3) {
-    bgUrl.value = "https://api.vvhan.com/api/wallpaper/acg";
+    bgUrl.value.ramdom = Math.floor(Math.random() * 10 + 1);
   }
 };
 
@@ -70,13 +66,13 @@ const imgAnimationEnd = () => {
 const imgLoadError = () => {
   console.error("Wallpaper load failed：", bgUrl.value);
   ElMessage({
-    message: "壁纸加载失败，已临时切换回默认",
+    message: "壁纸加载失败惹qwq，正在切换为本地过时壁纸",
     icon: h(Error, {
       theme: "filled",
       fill: "#efefef",
     }),
   });
-  bgUrl.value = `/images/background${bgRandom}.jpg`;
+  bgUrl.value = `/images/background/Deprecated/${bgRandom}.jpg`;
 };
 
 // 监听壁纸切换
