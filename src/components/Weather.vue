@@ -46,7 +46,7 @@ const getTemperature = (min, max) => {
     return Math.round(average);
   } catch (error) {
     console.error("Error in calculating temperature:", error);
-    return "NaN";
+    return "Undefined";
   }
 };
 
@@ -55,7 +55,7 @@ const getWeatherData = async () => {
   try {
     // 获取地理位置信息
     if (!mainKey) {
-      console.log("未配置，使用备用天气接口");
+      console.log("Not configured, using alternate weather interface");
       const result = await getOtherWeather();
       console.log(result);
       const data = result.result;
@@ -69,6 +69,9 @@ const getWeatherData = async () => {
         winddirection: data.condition.day_wind_direction,
         windpower: data.condition.day_wind_power,
       };
+    } else if (!mainKey || mainKey === "Example") {
+      console.log("Webmaster did not modify example APIKey");
+      onError("笨蛋站长没有改 APIKey 捏, 笨蛋笨蛋");
     } else {
       // 获取 Adcode
       const adCode = await getAdcode(mainKey);
@@ -91,7 +94,7 @@ const getWeatherData = async () => {
     }
   } catch (error) {
     console.error("Failed to obtain weather data:" + error);
-    onError("Failed to obtain weather data");
+    onError("天气数据获取失败惹qaq");
   }
 };
 
