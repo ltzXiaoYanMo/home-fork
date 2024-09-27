@@ -25,6 +25,8 @@
 
 <script setup>
 import { mainStore } from "@/store";
+import { ref, watch, onMounted, onBeforeUnmount } from "vue";
+import { ElMessage } from "element-plus";
 import { Error } from "@icon-park/vue-next";
 
 const store = mainStore();
@@ -153,7 +155,6 @@ onBeforeUnmount(() => {
     background-color: #00000030;
     width: 120px;
     height: 30px;
-    display: flex;
     justify-content: center;
     align-items: center;
     &:hover {
