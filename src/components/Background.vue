@@ -38,9 +38,9 @@ const bgRandom = Math.floor(Math.random() * 10 + 1);
 
 // 更换壁纸链接
 const changeBg = (type) => {
-  if (type == 0) {
+  if (type === "0") {
     bgUrl.value = `https://t.alcy.cc/moez`; // 没绷住，怎么优先走本地借口了 是怕服务器的硬盘爆了是吧
-  } else if (type == 1) {
+  } else if (type === "1") {
     bgUrl.value.ramdom = Math.floor(Math.random() * 10 + 1);
   }
 };
@@ -148,6 +148,7 @@ onBeforeUnmount(() => {
     margin: 0 auto;
     display: block;
     padding: 20px 26px;
+    padding-bottom: 40px;
     border-radius: 8px;
     background-color: #00000030;
     width: 120px;
