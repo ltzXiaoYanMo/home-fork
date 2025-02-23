@@ -1,5 +1,3 @@
-# Dev 分支推送部署预览
-## 仅部署 Win 端
 name: Build Dev
 
 on:
